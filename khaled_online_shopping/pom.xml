@@ -17,6 +17,13 @@
 
 	<dependencies>
 
+		<!-- link backend project -->
+		<dependency>
+			<groupId>net.kbs</groupId>
+			<artifactId>khaled_online_shopping_backend</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
 		<!--javaee-api -->
 		<!-- https://mvnrepository.com/artifact/javax/javaee-api -->
 		<dependency>
@@ -42,15 +49,15 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<!--jstl -->
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
-		
+
 		</dependency>
-		
+
 	</dependencies>
 	<build>
 		<plugins>

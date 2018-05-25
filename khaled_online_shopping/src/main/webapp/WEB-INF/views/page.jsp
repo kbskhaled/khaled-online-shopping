@@ -30,8 +30,13 @@
 <link href="${css}/myapp.css" rel="stylesheet">
 
 <!-- united theme -->
-<link href="${css}/united-theme.css" rel="stylesheet">
+<!-- <link href="${css}/united-theme.css" rel="stylesheet">-->
 
+<!-- darkly theme -->
+  <link href="${css}/darkly-theme.css" rel="stylesheet">
+ 
+<!--readable theme -->
+ <!--<link href="${css}/readable-theme.css" rel="stylesheet">-->
 </head>
 
 <body>
@@ -56,6 +61,10 @@
 
 			<c:if test="${userClickContact==true}">
 				<%@ include file="contact.jsp"%>
+			</c:if>
+			
+			<c:if test="${userClickAllProducts==true or userClickCategoryProducts==true}">
+				<%@ include file="listProducts.jsp"%>
 			</c:if>
 
 		</div>

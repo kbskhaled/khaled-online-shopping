@@ -12,6 +12,8 @@
    ">
    
   <context:component-scan base-package="net.kbs.khaled_online_shopping.controller" />
+  <context:component-scan base-package="net.kbs.khaled_online_shopping_backend.daoimpl" />
+   
   <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     <property name="prefix" value="/WEB-INF/views/"></property>
     <property name="suffix" value=".jsp"></property>
