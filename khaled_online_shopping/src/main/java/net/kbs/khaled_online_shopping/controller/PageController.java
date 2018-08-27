@@ -6,14 +6,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import net.kbs.khaled_online_shopping.exception.ProductNotFoundException;
 import net.kbs.khaled_online_shopping_backend.dao.CategoryDAO;
+import net.kbs.khaled_online_shopping_backend.dao.ProductDAO;
 import net.kbs.khaled_online_shopping_backend.dto.Category;
+import net.kbs.khaled_online_shopping_backend.dto.Product;
 
 @Controller
 public class PageController {
 	
 	@Autowired
 	private CategoryDAO categoryDAO;
+	
+	@Autowired
+	private ProductDAO productDAO;
 	
 	@RequestMapping(value = {"/","/index","/home"})
 	public ModelAndView index()
@@ -84,6 +90,33 @@ public class PageController {
 		return mv;
 	}
 	
+	/*
+	 * Viewing a single product
+	 * */
+	
+	@RequestMapping(value = "/show/{id}/product") 
+	public ModelAndView showSingleProduct(@PathVariable int id)  throws ProductNotFoundException {
+		
+		ModelAndView mv = new ModelAndView("page");
+		
+		Product product = productDAO.get(id);
+		
+		if(product == null) throw new ProductNotFoundException();
+		
+		// update the view count
+		product.setViews(product.getViews() + 1);
+		productDAO.update(product);
+		//---------------------------
+		
+		mv.addObject("title", product.getName());
+		mv.addObject("product", product);
+		
+		mv.addObject("userClickShowProduct", true);
+		
+		
+		return mv;
+		
+	}
 	
 	
 	

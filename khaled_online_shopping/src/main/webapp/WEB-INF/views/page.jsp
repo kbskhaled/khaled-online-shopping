@@ -22,6 +22,7 @@
 <title>KOS - ${title}</title>
 <script>
 	window.menu = '${title}'
+	window.contextRoot='${contextRoot}'
 </script>
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.css" rel="stylesheet">
@@ -33,10 +34,13 @@
 <!-- <link href="${css}/united-theme.css" rel="stylesheet">-->
 
 <!-- darkly theme -->
-  <link href="${css}/darkly-theme.css" rel="stylesheet">
+  <!-- <link href="${css}/darkly-theme.css" rel="stylesheet">-->
  
 <!--readable theme -->
- <!--<link href="${css}/readable-theme.css" rel="stylesheet">-->
+<link href="${css}/readable-theme.css" rel="stylesheet">
+
+<!--dataTable css -->
+<link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
 </head>
 
 <body>
@@ -66,6 +70,17 @@
 			<c:if test="${userClickAllProducts==true or userClickCategoryProducts==true}">
 				<%@ include file="listProducts.jsp"%>
 			</c:if>
+			
+			<!--  show a single product-->
+			<c:if test="${userClickShowProduct==true}">
+				<%@ include file="singleProduct.jsp"%>
+			</c:if>
+			
+			<!--  show manage product-->
+			<c:if test="${userClickManageProduct==true}">
+				<%@ include file="manageProducts.jsp"%>
+			</c:if>
+			
 
 		</div>
 
@@ -76,6 +91,17 @@
 		<script src="${js}/jquery.js"></script>
 		<script src="${js}/bootstrap.js"></script>
 		<script src="${js}/myapp.js"></script>
+		
+		<!-- validate -->
+		<script src="${js}/jquery.validate.js"></script>
+		
+		<!--dataTable js -->
+		<script src="${js}/jquery.dataTables.js"></script>
+		<script src="${js}/dataTables.bootstrap.js"></script>
+		
+		<!--Bootbox js -->
+		<script src="${js}/bootbox.min.js"></script>
+
 	</div>
 </body>
 
